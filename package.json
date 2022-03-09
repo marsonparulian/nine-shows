@@ -4,7 +4,9 @@
   "description": "`nine-shows` is a JSON based TV shows service.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:clearCache": "jest --clearCache"
   },
   "repository": {
     "type": "git",
