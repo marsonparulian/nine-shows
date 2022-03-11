@@ -1,24 +1,28 @@
 import supertest from "supertest";
 import app from "../../src/app";
+import jsonRequest from "../data/sample_request.json";
+import jsonResponse from "../data/sample_response.json";
 
 // This file contains tests for `shows`-related request handlers.
 
-describe("Handle `/` request", () => {
-    test("Should response with exactly the same JSON", async () => {
-        // JSON to be sent and received
-        const json = {
-            show: "The sun is bright",
-        }
+/**
+ * Tests
+ */
+describe("POST, filter and response back `show` in JSON", () => {
 
-        // Make request with `shows` in JSON
-        const response = await supertest(app).post("/")
-            .send(json)
+    test("Should filter the json request ", async () => {
+        // Make request
+        const response = await supertest(app)
+            .post("/")
+            .send(jsonRequest)
             .set("Content-Type", "application/json")
             .set("Accept", "application/json");
 
-        // Assert
+        // Response shouldbe be 200
         expect(response.status).toBe(200);
-        // Should return exactly the same JSON
-        expect(response.body).toEqual(json);
+        // Should have the right number of shows in response
+        expect(response.body.response.length).toBe(jsonResponse.response.length);
+        // Assert the response JSON 
+        expect(response.body).toEqual(jsonResponse);
     });
 });
