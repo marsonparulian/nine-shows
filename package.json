@@ -2,7 +2,7 @@
   "name": "nine-shows",
   "version": "1.0.0",
   "description": "`nine-shows` is a JSON based TV shows service.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "start": "node dist/index.js",
     "main": "node dist/index.js",
