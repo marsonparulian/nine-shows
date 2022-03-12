@@ -6,8 +6,12 @@ import indexRouter from "./routers/index.router";
 let app = express();
 app.use(express.json());
 
-
 // Set routers
 app.use("/", indexRouter);
+
+// Landing page
+app.get("/", (_, res) => {
+    res.status(200).send("Welcome to nine show web service");
+});
 
 export default app;
