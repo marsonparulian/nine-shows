@@ -21,11 +21,14 @@ const validateJSON = (req: Request, res: Response, next: NextFunction) => {
     }
 
     // If JSON valid, execute next handler
-    if (isJsonValid) next();
-    // Handle error
-    res.status(400).json({
-        message: texts.ERROR_INVALID_JSON,
-    });
+    if (isJsonValid) {
+        next();
+    } else {
+        // Handle error
+        res.status(400).json({
+            message: texts.ERROR_INVALID_JSON,
+        });
+    }
 
 }
 

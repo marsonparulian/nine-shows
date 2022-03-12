@@ -8,7 +8,7 @@ import { IShow, IShowCompact } from "../types/show";
  * @returns converted object
  */
 const toShowCompact = (show: IShow): IShowCompact => ({
-    image: show.image.showImage,
+    image: show.image?.showImage ?? "",
     slug: show.slug,
     title: show.title,
 });
