@@ -25,5 +25,4 @@ describe("`show` in JSON : handle invalid JSON", () => {
 
         shouldbeBe400(response);
     });
-    test.todo("Handle `image    ` is undefined");
 });
