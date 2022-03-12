@@ -4,6 +4,8 @@
   "description": "`nine-shows` is a JSON based TV shows service.",
   "main": "index.js",
   "scripts": {
+    "start": "node dist/index.js",
+    "build": "tsc",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:clearCache": "jest --clearCache"
