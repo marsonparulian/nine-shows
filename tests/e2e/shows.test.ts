@@ -17,6 +17,8 @@ describe("`show` in JSON : post, filter, and response back", () => {
 
         // Response shouldbe be 200
         expect(response.status).toBe(200);
+        // Should have exactly "application/json" in "content-type"
+        expect(response.headers["content-type"]).toBe("application/json");
         // Should have the right number of shows in response
         expect(response.body.response.length).toBe(jsonResponse.response.length);
         // Assert the response JSON 

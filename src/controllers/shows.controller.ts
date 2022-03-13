@@ -25,9 +25,11 @@ const validateJSON = (req: Request, res: Response, next: NextFunction) => {
         next();
     } else {
         // Handle error
-        res.status(400).json({
+        res.writeHead(400, {
+            "content-type": "application/json",
+        }).end(JSON.stringify({
             message: texts.ERROR_INVALID_JSON,
-        });
+        }));
     }
 
 }
@@ -43,9 +45,12 @@ const filterJson = (req: RequestWithShow, res: Response) => {
         .filter((show: IShow) => show.drm === true && show.episodeCount > 0)
         .map((show: IShow) => showHelper.toShowCompact(show));
 
-    res.json({
+    // Response
+    res.writeHead(200, {
+        "content-type": "application/json",
+    }).end(JSON.stringify({
         response: filteredShows,
-    });
+    }));
 };
 
 export default {
