@@ -28,7 +28,7 @@ const validateJSON = (req: Request, res: Response, next: NextFunction) => {
         res.writeHead(400, {
             "content-type": "application/json",
         }).end(JSON.stringify({
-            message: texts.ERROR_INVALID_JSON,
+            error: texts.ERROR_INVALID_JSON,
         }));
     }
 

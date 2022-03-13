@@ -9,7 +9,7 @@ const assertError = (response) => {
     expect(response.status).toBe(400);
     expect(response.headers["content-type"]).toBe("application/json");
     expect(response.body).toEqual({
-        message: texts.ERROR_INVALID_JSON,
+        error: texts.ERROR_INVALID_JSON,
     });
 }
 

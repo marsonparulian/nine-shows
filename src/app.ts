@@ -15,7 +15,7 @@ app.use((err: unknown, req: Request, res: Response, next: NextFunction) => {
         return res.writeHead(400, {
             "content-type": "application/json",
         }).end(JSON.stringify({
-            message: texts.ERROR_INVALID_JSON,
+            error: texts.ERROR_INVALID_JSON,
         }));
     }
     next();
