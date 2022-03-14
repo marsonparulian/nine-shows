@@ -26,4 +26,18 @@ describe("`show` in JSON : handle invalid JSON", () => {
 
         assertError(response);
     });
+
+    test("Should handle invalid JSON (parse error)", async () => {
+        const invalidJson = "{payload: []}";
+        // const invalidJson = { payload: [] };
+
+        // Make request
+        const response = await supertest(app)
+            .post("/")
+            .send(invalidJson)
+            .set("content-type", "application/json");
+
+        assertError(response);
+    });
+
 });
