@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from "express";
+import { responseInvalidJson } from "../middlewares/errors.middleware";
 import showHelper from "../helpers/show.helper";
 import { IShow, IShowCompact, RequestWithShow } from "../types/show";
 import texts from "../statics/texts";
@@ -25,11 +26,7 @@ const validateJSON = (req: Request, res: Response, next: NextFunction) => {
         next();
     } else {
         // Handle error
-        res.writeHead(400, {
-            "content-type": "application/json",
-        }).end(JSON.stringify({
-            error: texts.ERROR_INVALID_JSON,
-        }));
+        responseInvalidJson(res);
     }
 
 }
